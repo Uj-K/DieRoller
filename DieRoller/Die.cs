@@ -31,19 +31,23 @@
 
         /// <summary>
         /// Set a new random <see cref="FaceValue"/>
-        /// and returns the new number
+        /// to the new number if the die is not currently held.
+        /// Returns the <see cref="FaceValue"/>
         /// </summary>
         /// <returns>the new random number</returns>
         // Roll은 값을 얻거나(파라미터없음) 설정하는게 아니라 기능을 수행하는,
         // 행동을 정의하는 메서드이므로 get, set 이 필요없다.
         public byte Roll()
-        { 
-            // Generate random number
-            Random random = new ();
-            byte newValue = (byte)random.Next(1, 7);
+        {
+            if (!IsHeld)
+            {
+                // Generate random number
+                Random random = new();
+                byte newValue = (byte)random.Next(1, 7);
 
-            // Set to face value
-            FaceValue = newValue;
+                // Set to face value
+                FaceValue = newValue;
+            }
 
             // Return new number
             return FaceValue;
