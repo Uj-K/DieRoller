@@ -29,12 +29,19 @@
         public byte Roll()
         { 
             // Generate random number
-            // Set to face value
-            // Return new number
+            Random random = new Random();
+            byte newValue = (byte)random.Next(1, 7);
 
-            throw new NotImplementedException();
+            // Set to face value
+            FaceValue = newValue;
+
+            // Return new number
+            return FaceValue;
+
+
+            /*throw new NotImplementedException();
             // return value를 hardcode 하지 않고
-            // placeholder 개념도 되는 에러 방지 코드
+            // placeholder 개념도 되는 에러 방지 코드*/
         }
          
     }
