@@ -10,6 +10,15 @@
         /// a ramdom number
         /// </summary>
         // object을 생성할때, constructor가 호출되기 때문에 constructor 를 이렇게 만들어 줌
+
+        private static Random _random;
+
+        static Die() 
+        { 
+            _random = new Random();
+        }
+
+
         public Die()
         {
             Roll();        
@@ -42,8 +51,7 @@
             if (!IsHeld)
             {
                 // Generate random number
-                Random random = new();
-                byte newValue = (byte)random.Next(1, 7);
+                byte newValue = (byte)_random.Next(1, 7);
 
                 // Set to face value
                 FaceValue = newValue;
